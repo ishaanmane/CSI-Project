@@ -1,3 +1,4 @@
+#2nd comment
 # Purpose of this file:
 # This file downloads the satellite images which will then be processed in assemble.py
 #

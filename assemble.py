@@ -1,3 +1,4 @@
+#i have inserted a comment here
 # Purpose of this file:
 # This file takes the satellite image files downloaded from download.py and turns them into NumPy arrays that will be
 # fed to the neural network in model.py
