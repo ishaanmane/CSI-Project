@@ -1,4 +1,3 @@
-
 # Purpose of this file:
 # This file takes the satellite image files downloaded from download.py and turns them into NumPy arrays that will be
 # fed to the neural network in model.py
@@ -27,12 +26,12 @@ images = []
 labels = []
 
 # Gets list of names of files, each file containing a satellite image
-files = os.listdir('Satellite Imagery')
+files = os.listdir('Images of Satellite')
 num_files = len(files)
 
 for i in range(len(files)):
     # Get IR satellite image from the file
-    raw_data = netCDF4.Dataset('Satellite Imagery/' + files[i])
+    raw_data = netCDF4.Dataset('Images of Satellite/' + files[i])
     ir_data = raw_data.variables['IRWIN'][0]
 
     # 'Crop' the image by removing north, south, east, and west edges
