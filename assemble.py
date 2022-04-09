@@ -1,8 +1,8 @@
-#i have inserted a comment here
+
 # Purpose of this file:
 # This file takes the satellite image files downloaded from download.py and turns them into NumPy arrays that will be
 # fed to the neural network in model.py
-#
+
 # Outline of this file:
 # - Crops each satellite image
 # - Matches each satellite image of a hurricane with the maximum sustained wind speed of that hurricane
@@ -63,7 +63,7 @@ for i in range(len(files)):
         wind_speed = matching_best_track_data.max_sus_wind_speed.reset_index(drop=True)[0]
     except Exception:
         print('\rCould not find label for image of ' + storm_name + ' at date ' + str(date) + ' and time ' + str(time), end='\n')
-        continue  # Skip to the next hurricane image if the a wind speed could not be found for this hurricane image
+        continue  
 
     # Add the image and wind speed to these lists. This way, the lists of images and labels always line up. The first
     # hurricane image in the images list is associated with the first wind speed in the labels list.
@@ -87,7 +87,6 @@ labels = np.array(labels)
 labels = np.array(labels)s
 images = images.reshape((images.shape[0], side_length, side_length, 1))
 
-# Save the NumPy arrays for use in model.py, where the neural network is trained and validated on this data
 np.save('images.npy', images)
 np.save('labels.npy', labels)
 
