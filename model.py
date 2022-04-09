@@ -266,7 +266,7 @@ def show_validation_results(predictions, show_plots=True, print_error=True):
             estimator=np.median,
             order=categories)
         sns.despine()
-        plt.xlabel("Hurricane Strength")
+        plt.xlabel("Strength of Hurricane")
         plt.ylabel("Absolute Error")
         plt.title("Median Absolute Error in Neural Network's Predictions By Category")
         plt.savefig('median_abs_error_by_category.png')
