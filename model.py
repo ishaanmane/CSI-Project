@@ -1,10 +1,8 @@
-# model.py
-# Written By Connor Cozad
-#
+
 # Purpose of this file:
 # This file builds and trains the neural network with the data processed by assemble.py. This file also validates the
 # model, telling the user how accurate it is.
-#
+
 # Outline of this file:
 # - Reads and augments images of hurricanes and their labels for use in convolutional neural network (CNN)
 # - Builds a CNN and trains it on those images and labels
@@ -92,7 +90,7 @@ def augment_images(images, labels):
     # Loop each images in the set to augment
     for i in range(len(images)):
 
-        # Reshape image for generator
+      
         image = np.reshape(images[i], (1, images[i].shape[0], images[i].shape[1], 1))
         label = labels[i]
 
@@ -134,7 +132,6 @@ def augment_images(images, labels):
 
         print_progress('Augmenting Images', i + 1, len(images))
 
-    # Convert lists of images/labels into numpy arrays
     augmented_images = np.array(augmented_images)
     augmented_labels = np.array(augmented_labels)
 
@@ -210,7 +207,7 @@ def performance_by_epoch(performance_log):
         y='value',
         data=performance_df,
         row='loss_or_mae',
-        hue='train_or_test',  # Note: If epoch = 1, this line causes an error. Make sure epoch >= 2
+        hue='train_or_test',  
         logx=True,
         truncate=False,
         sharey=False)
@@ -257,7 +254,6 @@ def show_validation_results(predictions, show_plots=True, print_error=True):
         # List of categories in order of ascending strength
         categories = ['T. Depression', 'T. Storm', 'Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5']
 
-        # Show bar graph of median absolute error for each category
         plt.figure(figsize=(10, 5), dpi=300)
         sns.barplot(
             x='category',

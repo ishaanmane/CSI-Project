@@ -1,7 +1,7 @@
-#2nd comment
+
 # Purpose of this file:
 # This file downloads the satellite images which will then be processed in assemble.py
-#
+
 # Outline of this file:
 # - Loops through each year and downloads .tar.gz files containing satellite images for Atlantic and Pacific hurricanes
 # - Only extracts files from the .tar.gz files that contain images of hurricanes that we know the wind speed of
@@ -46,11 +46,9 @@ def download_hursat(years):
                 file_name = storm_file_url.split('/')[-1]
                 storm_file_path = 'Satellite Imagery/' + file_name
 
-                # Create the Satellite Imagery folder if it doesn't already exist
                 if not os.path.exists('Satellite Imagery'):
                     os.makedirs('Satellite Imagery')
 
-                # Open the .tar.gz and copy it's contents from the web, onto our computer
                 request = requests.get(storm_file_url, allow_redirects=True)
                 open(storm_file_path, 'wb').write(request.content)
                 request.close()
@@ -92,8 +90,7 @@ def print_progress(action, progress, total):
 
 
 if __name__ == "__main__":
-    # Specify a list of years. Satellite images of hurricanes from those years will be downloaded. More years will
-    # provide more data for the neural network to work with in model.py, but will take longer to download.
+  
     YEARS_TO_DOWNLOAD = ['2016', '2015', '2014', '2013', '2012']
 
     download_hursat(YEARS_TO_DOWNLOAD)
