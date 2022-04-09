@@ -26,12 +26,12 @@ images = []
 labels = []
 
 # Gets list of names of files, each file containing a satellite image
-files = os.listdir('Images of Satellite')
+files = os.listdir('Satellite Imagery')
 num_files = len(files)
 
 for i in range(len(files)):
     # Get IR satellite image from the file
-    raw_data = netCDF4.Dataset('Images of Satellite/' + files[i])
+    raw_data = netCDF4.Dataset('Satellite Imagery/' + files[i])
     ir_data = raw_data.variables['IRWIN'][0]
 
     # 'Crop' the image by removing north, south, east, and west edges
