@@ -3,15 +3,15 @@ This repo contains the code to download and prepare data to train and validate a
 ## Project Background and Motivation
 Since hurricanes are typically located over large bodies of water where weather stations are sparse, meteorologists often have to estimate the wind speed of hurricanes. They usually use buoy observations, microwave satellite imagery, and infrared satellite imagery to make these estimates.
 
-There is growing interest in applying AI and machine learning techniques to improve the accuracy of operational meteorological tasks, including estimating hurricane wind speed. I began looking into applying deep learning to hurricane wind speed estimation during the COVID-19 pandemic when the American Meteorological Society (AMS) made their journal articles publicly available at no cost. <a href="https://journals.ametsoc.org/mwr/article/147/6/2261/344590/Using-Deep-Learning-to-Estimate-Tropical-Cyclone">Wimmers et al. 2019</a> and <a href="https://journals.ametsoc.org/waf/article/34/2/447/291/Estimating-Tropical-Cyclone-Intensity-by-Satellite">Chen et al. 2019</a> both applied deep learning to hurricane wind speed estimation, achieving considerable accuracy. 
+There is growing interest in applying AI and machine learning techniques to improve the accuracy of operational meteorological tasks, including estimating hurricane wind speed.We have applied deep learning concepts in Cyclone wind speed estimation.
 ## Data Sources
-We used images of hurricanes from the <a href="https://www.ncdc.noaa.gov/hursat/">Tropical Cyclone Formation Indian Ocean Basin</a> run by the National Centers for Environmental Information. This database contains satellite images of hurricanes in NetCDF file format. The best part about this database: the center of each hurricane was in the middle of each image.
+We used images of cyclones from the <a href="https://www.ncdc.noaa.gov/hursat/">Tropical Cyclone Formation Indian Ocean Basin</a> run by the National Centers for Environmental Information. This database contains satellite images of hurricanes in NetCDF file format. The best part about this database: the center of each hurricane was in the middle of each image.
 
 We also used best track data from the <a href="https://www.nhc.noaa.gov/data/#hurdat">Tropical Cyclone Formation Indian Ocean Basin</a> provided by the National Hurricane Center. It contains records of all known hurricanes in the Atlantic and Pacific basins, as well as their wind speeds at 6-hour intervals.
 ## Overview of Files
 <b>`environment.yml`</b>: Lists out all libraries (and their dependencies) neccessary to run the Python files. Anaconda reads this file to create an environment in which the Python files can be interpreted and executed.
 
-<b>`besttrack.csv`</b>: Contains the data cleaned from the National Hurricane Center's HURDAT2 database found at this <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2019-052520.txt">link</a>. `download.py` and `assemble.py` rely on this data to function properly.
+<b>`besttrack.csv`</b>: Contains the data cleaned from the National Hurricane Center's Tropical Cyclone Formation Indian Ocean Basin found at this <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2019-052520.txt">link</a>. `download.py` and `assemble.py` rely on this data to function properly.
 
 <b>`download.py`</b>: Downloads the satellite images of hurricanes from the HURSAT database as NetCDF files.
 
@@ -51,7 +51,7 @@ This table shows one example of the neural network’s root-mean-square error (R
     <td>13.9 knots</td>
   <tr>
 </table>
-<a href="https://journals.ametsoc.org/mwr/article/147/6/2261/344590/Using-Deep-Learning-to-Estimate-Tropical-Cyclone">Wimmers et al. 2019</a> achieved an RMSE of 14.3 knots when using the same HURDAT2 best track dataset to test their model on hurricanes that occurred in 2007 and 2012. Please note, my table shows <i>validation</i> results, and Wimmers provides <i>test</i> results.
+<a href="https://journals.ametsoc.org/mwr/article/147/6/2261/344590/Using-Deep-Learning-to-Estimate-Tropical-Cyclone">Wimmers et al. 2019</a> achieved an RMSE of 14.3 knots when using the same Tropical Cyclone Formation Indian Ocean Basin best track dataset to test their model on hurricanes that occurred in 2007 and 2012. Please note, my table shows <i>validation</i> results, and Wimmers provides <i>test</i> results.
 
 ## Install and Run the Project
 Following these steps will allow you to run `model.py`, which performs k-fold validation on the model using the downloaded data. These instructions use Anaconda for package management and deployment.
